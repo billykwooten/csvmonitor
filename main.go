@@ -17,11 +17,14 @@ var (
 )
 
 func initEight() {
+	var hour int
+	int = 8
 	t := time.Now()
-	n := time.Date(t.Year(), t.Month(), t.Day(), 8, 0, 0, 0, t.Location())
+	n := time.Date(t.Year(), t.Month(), t.Day(), hour, 0, 0, 0, t.Location())
 	d := n.Sub(t)
 	if d < 0 {
 		log.Info("Waiting 24 hours to run again")
+		log.Info("Will run again at hour %d\n", hour)
 		n = n.Add(24 * time.Hour)
 		d = n.Sub(t)
 	}
