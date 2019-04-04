@@ -18,7 +18,7 @@ var (
 
 func initEight() {
 	var hour int
-	int = 8
+	hour = 8
 	t := time.Now()
 	n := time.Date(t.Year(), t.Month(), t.Day(), hour, 0, 0, 0, t.Location())
 	d := n.Sub(t)
