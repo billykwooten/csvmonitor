@@ -7,7 +7,7 @@ import (
 	"strconv"
 	"fmt"
 	"time"
-	"github.com/plexmonitor/slack"
+	"github.com/csvmonitor/slack"
 )
 
 type Client struct { // Our example struct, you can use "-" to ignore a field
