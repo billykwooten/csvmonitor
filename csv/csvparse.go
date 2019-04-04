@@ -8,6 +8,7 @@ import (
 	"fmt"
 	"time"
 	"github.com/csvmonitor/slack"
+	"github.com/azer/logger"
 )
 
 type Client struct { // Our example struct, you can use "-" to ignore a field
@@ -18,16 +19,23 @@ type Client struct { // Our example struct, you can use "-" to ignore a field
 }
 
 func Parse_csv(csvloc string, slackhook string) {
+	var log = logger.New("Parse_csv")
 
+	log.Info("Opening CSV file")
 	clientsFile, err := os.OpenFile(csvloc, os.O_RDWR|os.O_CREATE, os.ModePerm)
 	if err != nil {
+		log.Error("Fatal could not open CSV")
+		log.Error("error: %s\n", err)
 		panic(err)
 	}
 	defer clientsFile.Close()
 
 	var clients []*Client
 
+	log.Info("Unmarshaling CSV file")
 	if err := gocsv.UnmarshalFile(clientsFile, &clients); err != nil { // Load clients from file
+		log.Error("Fatal could not unmarshal CSV")
+		log.Error("error: %s\n", err)
 		panic(err)
 	}
 
@@ -76,9 +84,11 @@ func Parse_csv(csvloc string, slackhook string) {
 			monthstoadd = paymentconv / 5
 		}
 
+		log.Info("Calculating expiration dates")
 		start := time.Date(year, time.Month(month+monthstoadd), day, 0, 0, 0, 0, time.UTC)
 		expirationdate := start.AddDate(0, 1, 0)
 
+		log.Info("Sending slack Webhook")
 		slackwebhook.SlackWebHook(slackhook, client.Name, client.Date, client.Payment, expirationdate.String(), expirationdate.Before(time.Now()))
 
 	}

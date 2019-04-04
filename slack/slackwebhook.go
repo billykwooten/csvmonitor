@@ -2,11 +2,13 @@ package slackwebhook
 
 import "github.com/ashwanthkumar/slack-go-webhook"
 import (
-	"fmt"
 	"strconv"
+	"github.com/azer/logger"
 )
 
 func SlackWebHook(webhook string, clientname string, clientdate string, clientpayment string, expirationdate string, expired bool) {
+	var log = logger.New("SlackWebHook")
+
 	webhookUrl := webhook
 
 	color := "#2eb886"
@@ -26,6 +28,6 @@ func SlackWebHook(webhook string, clientname string, clientdate string, clientpa
 	}
 	err := slack.Send(webhookUrl, "", payload)
 	if len(err) > 0 {
-		fmt.Printf("error: %s\n", err)
+		log.Error("error: %s\n", err)
 	}
 }
