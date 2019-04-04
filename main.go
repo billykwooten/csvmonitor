@@ -18,7 +18,7 @@ var (
 
 func initEight() {
 	t := time.Now()
-	n := time.Date(t.Year(), t.Month(), t.Day(), 15, 37, 0, 0, t.Location())
+	n := time.Date(t.Year(), t.Month(), t.Day(), 8, 0, 0, 0, t.Location())
 	d := n.Sub(t)
 	if d < 0 {
 		log.Info("Waiting 24 hours to run again")
