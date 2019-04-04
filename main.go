@@ -35,7 +35,6 @@ func initEight() {
 
 
 func main() {
-	os.Setenv("LOG", "*")
 	kingpin.MustParse(app.Parse(os.Args[1:]))
 
 	log.Info("Starting CSVMonitor")
