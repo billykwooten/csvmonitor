@@ -1,4 +1,4 @@
-module github.com/plexmonitor
+module github.com/csvmonitor
 
 go 1.12
 
