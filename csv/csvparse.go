@@ -85,8 +85,8 @@ func Parse_csv(csvloc string, slackhook string) {
 		}
 
 		log.Info("Calculating expiration dates")
-		start := time.Date(year, time.Month(month+monthstoadd), day, 0, 0, 0, 0, time.UTC)
-		expirationdate := start.AddDate(0, 1, 0)
+		start := time.Date(year, time.Month(month), day, 0, 0, 0, 0, time.UTC)
+		expirationdate := start.AddDate(0, monthstoadd, 0)
 
 		log.Info("Sending slack Webhook")
 		slackwebhook.SlackWebHook(slackhook, client.Name, client.Date, client.Payment, expirationdate.String(), expirationdate.Before(time.Now()))
