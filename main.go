@@ -24,7 +24,7 @@ func initEight() {
 	d := n.Sub(t)
 	if d < 0 {
 		log.Info("Waiting 24 hours to run again")
-		log.Info("Will run again at hour %d", *csvhour, ":", *csvminute)
+		log.Info("Will run again at hour %d:%d", *csvhour, *csvminute)
 		n = n.Add(24 * time.Hour)
 		d = n.Sub(t)
 	}
