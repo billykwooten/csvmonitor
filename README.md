@@ -18,6 +18,9 @@ Dark sky exporter can be controlled by both ENV or CLI flags as described below.
 |----------------------------|-----------------------------|---------------------------- |------------------------------------------------------------------------------------------------------------------|
 | `CSVLOC`                   | `csv`                       | `<REQUIRED>`                | File path of the CSV file |
 | `SLACKHOOK`                | `slackhook`                 | `<REQUIRED>`                | Webhook URL for Slacks    |
+| `CSVHOUR`                  | `csvhour`                   | `8`                | Hour at which script will run    |
+| `CSVMINUTE`                | `csvminute`                 | `0`                | Minute of the hour in which script will run    |
+
 
 ## Usage
 
