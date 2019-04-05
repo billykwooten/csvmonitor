@@ -40,20 +40,20 @@ func Parse_csv(csvloc string, slackhook string) {
 	}
 
 	for _, client := range clients {
-		var month int
+		//var month int
 		var day int
 		var year int
 
 		paymentdate := strings.Split(client.Date, "/")
 
 		for i := range paymentdate {
-			if i == 0 {
-				month, err = strconv.Atoi(paymentdate[i])
-				if err != nil {
-					fmt.Println(err)
-					os.Exit(2)
-				}
-			}
+			//if i == 0 {
+			//	month, err = strconv.Atoi(paymentdate[i])
+			//	if err != nil {
+			//		fmt.Println(err)
+			//		os.Exit(2)
+			//	}
+			//}
 			if i == 1 {
 				day, err = strconv.Atoi(paymentdate[i])
 				if err != nil {
