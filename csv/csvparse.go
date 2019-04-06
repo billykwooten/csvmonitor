@@ -80,7 +80,7 @@ func Parse_csv(csvloc string, slackhook string) {
 
 		monthstoadd := 0
 
-		if paymentconv > 5 {
+		if paymentconv >= 5 {
 			monthstoadd = paymentconv / 5
 		}
 
