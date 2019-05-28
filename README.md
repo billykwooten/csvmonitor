@@ -25,9 +25,9 @@ Dark sky exporter can be controlled by both ENV or CLI flags as described below.
 ## Usage
 
 ```
-# Export weather metrics from Seattle using binary
+# Monitor CSV using binary
 export LOG=*; ./csvmonitor --csv test.csv --slackhook https://hooks.slack.com/services/JIGJ42V99/BHDTFBH9P/K489FDQyPjlHVjU5492AjTWfQ
 
-# Export weather metrics from Seattle using docker
+# Monitor CSV using docker
 docker run -d --restart on-failure --env LOG=* --name=csvmonitor billykwooten/csvmonitor --csv test.csv --slackhook https://hooks.slack.com/services/JIGJ42V99/BHDTFBH9P/K489FDQyPjlHVjU5492AjTWfQ
 ```
